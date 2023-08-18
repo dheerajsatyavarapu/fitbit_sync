@@ -7,6 +7,7 @@ from django.dispatch import receiver
 # Extending User Model Using a One-To-One Link
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    fitbit_auth_code = models.TextField(max_length=50, null=True)
 
 
 @receiver(post_save, sender=User)

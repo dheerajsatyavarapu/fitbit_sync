@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt import views as jwt_views
 
+import fitbit.views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/token/',
@@ -27,4 +29,5 @@ urlpatterns = [
          jwt_views.TokenRefreshView.as_view(),
          name='token_refresh'),
     path('user/', include('users.urls')),
+    path('fitbit/', include('fitbit.urls')),
 ]
